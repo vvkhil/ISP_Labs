@@ -22,6 +22,7 @@ namespace ConsoleApp2
             string Choise = Console.ReadLine();          
             switch(Choise)
             {
+                //В заданной строке поменять порядок слов на обратный (слова разделены пробелами).
                 case "1":
                     Console.WriteLine("Enter string:");
                     string InputString1 = Console.ReadLine();
@@ -31,6 +32,7 @@ namespace ConsoleApp2
                         Console.Write(Words[i] + " ");
                     }
                     break;
+                //Получить текущее время и дату в двух разных форматах и вывести на экран коли-чество нулей, единиц, …, девяток в их записи.
                 case "2":
                     DateTime CurrentDate = new DateTime();
                     CurrentDate = DateTime.Now;
@@ -51,6 +53,7 @@ namespace ConsoleApp2
                     Console.WriteLine("Количество 8: " + Search(CheckedString, '8'));
                     Console.WriteLine("Количество 9: " + Search(CheckedString, '9'));
                     break;
+                //Дана строка. Найти в ней все заглавные буквы, не входящие в английский алфавит.
                 case "3":
                     Console.Write("Enter string :");
                     string InputString2 = Console.ReadLine();
