@@ -10,22 +10,30 @@ namespace ConsoleApp3
         private double weight;
 
 
-        public Human(string _name, int _age, int _height, double _weight)
+        public string Name { get; set; }
+
+        public Human(int _age, int _height, double _weight)
         {
-            name = _name;
             age = _age;
             height = _height;
             weight = _weight;
         }
+       
+        
         public static void GetNationality()
         {
             Console.WriteLine($"Nationality:{nationality}");
         }
+        
         public void GetInfo()
         {
             Console.WriteLine($"Name:{name}\nAge:{age}\nHeight:{height}\nWeight:{weight}\n");
         }
+        
+        
         public int dailyCalorieIntake;
+       
+        
         public int DailyCalorieIntake
         {
             get
@@ -33,7 +41,11 @@ namespace ConsoleApp3
                 return dailyCalorieIntake = (int)weight * 10 + height * 6 - age * 5;
             }
         }
+        
+        
         public double dailyWaterIntake;
+        
+        
         public double DailyWaterIntake
         {
             get
@@ -41,25 +53,35 @@ namespace ConsoleApp3
                 return dailyWaterIntake = Math.Round(0.03 * weight,1);
             }
         }
+        
+        
         public double Drink(double drunkWater,double volumeWater)
         {
             return drunkWater + volumeWater;
         }
+        
+        
         public int Eat(int product1,int product2,int calorieNow)
         {
             Console.WriteLine("Little food!");
             return calorieNow = product1 + product2;
         }
+        
+        
         public int Eat(int product1, int product2, int product3, int calorieNow)
         {
             Console.WriteLine("Enough food!");
             return calorieNow = product1 + product2 + product3;
         }
+        
+        
         public int Eat(int product1, int product2, int product3, int product4, int calorieNow)
         {
             Console.WriteLine("A lot of food!");
             return calorieNow = product1 + product2 + product3 + product4;
         }
+       
+       
         public double DrunkingWater(double drunkWater)
         {
             while (drunkWater < DailyWaterIntake)
@@ -94,6 +116,8 @@ namespace ConsoleApp3
             drunkWater = Math.Round(drunkWater, 1);
             return drunkWater;
         }
+        
+        
         public int Nutrition(int calorieNow, int meatCalorie, int vegetablesCalorie, int fruitsCalorie, int porridgeCalorie)
         {
             while (calorieNow < DailyCalorieIntake)
@@ -124,6 +148,8 @@ namespace ConsoleApp3
             }
             return calorieNow;
         }
+        
+        
         public double WeightGained(int calorieNow)
         {
             int difference = calorieNow - DailyCalorieIntake;
@@ -133,16 +159,43 @@ namespace ConsoleApp3
             weight += weightGained;
             return weight;
         }
+        
+        
         public void GetInfo(double newWeight)
         {
             Console.WriteLine($"Name:{name}\nAge:{age}\nHeight:{height}\nNew weight:{newWeight}\n");
         }
     }
+
+
+    class People
+    {
+        Human[] data;
+        public People()
+        {
+            data = new Human[2];
+        }
+        public Human this[int index]
+        {
+            get
+            {
+                return data[index];
+            }
+            set
+            {
+                data[index] = value;
+            }
+        }
+    }
+
+
     class Program
     {
         static void Main(string[] args)
         {
-            Human Tom = new Human("Tom", 17, 170, 60);
+            People people = new People();
+            people[0] = new Human(17, 170, 60) { Name = "Tom" };
+            Human Tom = people[0];
             Human.GetNationality();
             Tom.GetInfo();
             Console.WriteLine($"\nCalorie,ccal:{Tom.DailyCalorieIntake}\nWater,L:{Tom.DailyWaterIntake}");
@@ -171,7 +224,8 @@ namespace ConsoleApp3
             Console.Write("\n\n///////////////\nNew personage:\n///////////////\n\n");
 
 
-            Human Oleg = new Human("Oleg", 17, 205, 130);
+            people[1] = new Human(17, 205, 130) { Name = "Oleg" };
+            Human Oleg = people[1];
             Human.GetNationality();
             Oleg.GetInfo();
             Console.WriteLine($"\nCalorie,ccal:{Oleg.DailyCalorieIntake}\nWater,L:{Oleg.DailyWaterIntake}");
