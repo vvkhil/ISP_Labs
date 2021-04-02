@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "N/S9pETITQt22oigUUcJCj3O/UZbS/QBPgRHYWmyK2CHIt6Vnp2jdpRlMeyg+9vHmqUBvRTDak6RxvQFk+P97g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\XILMAKS\\Desktop\\C#\\laba 4\\ConsoleApp4\\ConsoleApp4\\ConsoleApp4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\XILMAKS\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\XILMAKS\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\XILMAKS\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
