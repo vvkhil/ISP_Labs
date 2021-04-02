@@ -12,26 +12,29 @@ namespace ConsoleApp4
         [DllImport("User32.dll")]
         public static extern int MessageBox(IntPtr hwnd, String text, String Caption, int options);
     }
-    class Program
+    class MyDll
     {
         [DllImport("Dll2.dll", CallingConvention = CallingConvention.StdCall)]
-        static extern float Addition(float a, float b);
+        public static extern float Addition(float a, float b);
 
         [DllImport("Dll2.dll", CallingConvention = CallingConvention.StdCall)]
-        static extern float Difference(float a, float b);
+        public static extern float Difference(float a, float b);
 
         [DllImport("Dll2.dll", CallingConvention = CallingConvention.StdCall)]
-        static extern float Multiplication(float a, float b);
+        public static extern float Multiplication(float a, float b);
 
         [DllImport("Dll2.dll", CallingConvention = CallingConvention.StdCall)]
-        static extern float Divide(float a, float b);
+        public static extern float Divide(float a, float b);
+    }
+
+    class Program
+    {
         static void Main(string[] args)
         {   
             IntPtr ptrDesktop = dllWin32.GetDC(IntPtr.Zero);
 
             Graphics graf = Graphics.FromHdc(ptrDesktop);
 
-            Console.WriteLine("0 - Exit");
             Console.WriteLine("1 - Inscription");
             Console.WriteLine("2 - Message box");
             Console.WriteLine("3 - Bezier curve");
@@ -76,13 +79,13 @@ namespace ConsoleApp4
                     }
                     break;
                 case "4":
-                    float result = Addition(3, 2);
+                    float result = MyDll.Addition(3, 2);
                     Console.WriteLine($"Addition:{result}");
-                    result = Difference(7, 2);
+                    result = MyDll.Difference(7, 2);
                     Console.WriteLine($"Difference:{result}");
-                    result = Multiplication(4, 2);
+                    result = MyDll.Multiplication(4, 2);
                     Console.WriteLine($"Multiplication:{result}");
-                    result = Divide(3, 2);
+                    result = MyDll.Divide(3, 2);
                     Console.WriteLine($"Divide:{result}");
                     break;
                 default:
