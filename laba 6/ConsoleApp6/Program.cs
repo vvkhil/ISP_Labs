@@ -269,6 +269,9 @@ namespace ConsoleApp6
                         {
                             Console.WriteLine($"{p.Name}");
                         }
+
+                        Console.ReadKey();
+
                         break;
                     case "5":
                         isCorrect = false;
