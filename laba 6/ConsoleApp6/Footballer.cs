@@ -2,7 +2,7 @@
 
 namespace ConsoleApp6
 {
-    sealed class Footballer : Sportsman, IActions
+    sealed class Footballer : Sportsman,INutrition<int>,IDrink<double>,IGame
     {
         public Footballer(int age, int height, double weight)
             : base(age, height, weight)
@@ -15,7 +15,7 @@ namespace ConsoleApp6
         }
 
 
-        double IActions.DrunkingWater(double drunkWater)
+        double IDrink<double>.DrunkingWater(double drunkWater)
         {
             int count = 0;
             while (count < 4)
@@ -55,7 +55,7 @@ namespace ConsoleApp6
         }
 
 
-        int IActions.Nutrition(int calorieNow, int meatCalorie, int vegetablesCalorie, int fruitsCalorie, int porridgeCalorie)
+        int INutrition<int>.Nutrition(int calorieNow, int meatCalorie, int vegetablesCalorie, int fruitsCalorie, int porridgeCalorie)
         {
             int count = 0;
             while (count < 4)

@@ -75,9 +75,9 @@ namespace ConsoleApp6
 
     class Program
     {
-        static void Action(IActions actions)
+        static void Action(IGame game)
         {
-            actions.Game(); 
+            game.Game(); 
         }
         static void Main(string[] args)
         {
@@ -93,7 +93,8 @@ namespace ConsoleApp6
                 Console.Write($"2:Basketball players\n");
                 Console.Write($"3:Create List\n");
                 Console.Write($"4:Using a comparator\n");
-                Console.Write($"5:Exit\n");
+                Console.Write($"5:Create clone\n");
+                Console.Write($"6:Exit\n");
                 Console.Write("Make a choice:\n");
                 string choiseSportsman = Console.ReadLine();
                 switch (choiseSportsman)
@@ -111,8 +112,8 @@ namespace ConsoleApp6
 
                         Console.Write("\n\n");
 
-                        drunkWaterTom = ((IActions)Tom).DrunkingWater(drunkWaterTom);
-                        calorieNowTom = ((IActions)Tom).Nutrition(calorieNowTom, meatCalorie, vegetablesCalorie, fruitsCalorie, porridgeCalorie);
+                        drunkWaterTom = ((IDrink<double>)Tom).DrunkingWater(drunkWaterTom);
+                        calorieNowTom = ((INutrition<int>)Tom).Nutrition(calorieNowTom, meatCalorie, vegetablesCalorie, fruitsCalorie, porridgeCalorie);
 
                         Console.Write("\n\n");
 
@@ -138,8 +139,8 @@ namespace ConsoleApp6
 
                         Console.Write("\n\n");
 
-                        drunkWaterOleg = ((IActions)Oleg).DrunkingWater(drunkWaterOleg);
-                        calorieNowOleg = ((IActions)Oleg).Nutrition(calorieNowOleg, meatCalorie, vegetablesCalorie, fruitsCalorie, porridgeCalorie);
+                        drunkWaterOleg = ((IDrink<double>)Oleg).DrunkingWater(drunkWaterOleg);
+                        calorieNowOleg = ((INutrition<int>)Oleg).Nutrition(calorieNowOleg, meatCalorie, vegetablesCalorie, fruitsCalorie, porridgeCalorie);
 
                         Console.Write("\n\n");
 
@@ -181,8 +182,8 @@ namespace ConsoleApp6
 
                         Console.Write("\n\n");
 
-                        drunkWaterVlad = ((IActions)Vlad).DrunkingWater(drunkWaterVlad);
-                        calorieNowVlad = ((IActions)Vlad).Nutrition(calorieNowVlad, meatCalorie, vegetablesCalorie, fruitsCalorie, porridgeCalorie);
+                        drunkWaterVlad = ((IDrink<double>)Vlad).DrunkingWater(drunkWaterVlad);
+                        calorieNowVlad = ((INutrition<int>)Vlad).Nutrition(calorieNowVlad, meatCalorie, vegetablesCalorie, fruitsCalorie, porridgeCalorie);
 
                         Console.Write("\n\n");
 
@@ -208,8 +209,8 @@ namespace ConsoleApp6
 
                         Console.Write("\n\n");
 
-                        drunkWaterArtyom = ((IActions)Artyom).DrunkingWater(drunkWaterArtyom);
-                        calorieNowArtyom = ((IActions)Artyom).Nutrition(calorieNowArtyom, meatCalorie, vegetablesCalorie, fruitsCalorie, porridgeCalorie);
+                        drunkWaterArtyom = ((IDrink<double>)Artyom).DrunkingWater(drunkWaterArtyom);
+                        calorieNowArtyom = ((INutrition<int>)Artyom).Nutrition(calorieNowArtyom, meatCalorie, vegetablesCalorie, fruitsCalorie, porridgeCalorie);
 
                         Console.Write("\n\n");
 
@@ -240,11 +241,11 @@ namespace ConsoleApp6
                         break;
                     case "3":
                         List<Sportsman> sportsmen = new List<Sportsman>() { new BasketballPlayer(10, 140, 50) { Name = "Alex" }, new Footballer(13, 163, 67) { Name = "Nikolai" } };
-                        foreach (Sportsman p in sportsmen)
+                        foreach (Sportsman s in sportsmen)
                         {
                             Console.WriteLine();
-                            Console.Write(p.Name);
-                            Console.WriteLine($" energy:{p.RecoveryEnergy()}");
+                            Console.Write(s.Name);
+                            Console.WriteLine($" energy:{s.RecoveryEnergy()}");
                         }
 
 
@@ -253,16 +254,16 @@ namespace ConsoleApp6
 
                         break;
                     case "4":
-                        Footballer p1 = new Footballer (10,140,50){ Name = "Billi"};
-                        Footballer p2 = new Footballer (20,156,67){ Name = "Tom"};
-                        Footballer p3 = new Footballer (23,165,78){ Name = "Mark"};
+                        Footballer f1 = new Footballer (10,140,50){ Name = "Billi"};
+                        Footballer f2 = new Footballer (20,156,67){ Name = "Tom"};
+                        Footballer f3 = new Footballer (23,165,78){ Name = "Mark"};
 
-                        p1.GetInfo();
-                        p2.GetInfo();
-                        p3.GetInfo();
+                        f1.GetInfo();
+                        f2.GetInfo();
+                        f3.GetInfo();
 
 
-                        Footballer[] footballers = new Footballer[] { p1, p2, p3 };
+                        Footballer[] footballers = new Footballer[] { f1, f2, f3 };
                         Array.Sort(footballers, new FootballerComparer());
 
                         foreach (Footballer p in footballers)
@@ -270,10 +271,35 @@ namespace ConsoleApp6
                             Console.WriteLine($"{p.Name}");
                         }
 
+
                         Console.ReadKey();
 
                         break;
                     case "5":
+                        Sportsman p1 = new Sportsman (12,145,89){ Name = "Kolya" };
+                        Sportsman p2 = (Sportsman)p1.Clone();
+                        
+                        Console.WriteLine(p1.Name);
+                        p1.GetInfo();
+                        Console.WriteLine(p2.Name);
+                        p2.GetInfo();
+
+                        Console.WriteLine();
+                        Console.WriteLine("To make a change press any key");
+                        Console.ReadKey();
+                        Console.WriteLine();
+
+                        p2.Name = "Alice";
+                        p2.Height = 100;
+                        p2.Weight = 40;
+
+                        Console.WriteLine(p1.Name);
+                        p1.GetInfo();
+                        Console.WriteLine(p2.Name);
+                        p2.GetInfo();
+
+                        break;
+                    case "6":
                         isCorrect = false;
                         break;
                 }

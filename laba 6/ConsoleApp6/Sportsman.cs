@@ -2,7 +2,7 @@
 
 namespace ConsoleApp6
 {
-    class Sportsman : Human<int>
+    class Sportsman : Human<int>, ICloneable
     {
         private int energy;
         public int Energy
@@ -15,6 +15,12 @@ namespace ConsoleApp6
             {
                 return energy;
             }
+        }
+
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
 
 
