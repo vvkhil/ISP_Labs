@@ -2,7 +2,7 @@
 
 namespace ConsoleApp6
 {
-    sealed class BasketballPlayer : Sportsman, IDrink<double>,INutrition<int>,IGame
+    sealed class BasketballPlayer : Sportsman, IDrink<double>,INutrition<int>,IGame, IComp<BasketballPlayer, Sportsman>
     {
         public BasketballPlayer(int age, int height, double weight)
             : base(age, height, weight)
@@ -12,6 +12,28 @@ namespace ConsoleApp6
         public override void GetInfo()
         {
             Console.WriteLine($"Name:{Name}\nAge:{Age}\nHeight:{Height}\nWeight:{Weight}\n");
+        }
+
+
+        public int Comparator(BasketballPlayer a, Sportsman b)
+        {
+            if (a.Name.Length > b.Name.Length) return 1;
+            if (a.Name.Length < b.Name.Length) return -1;
+            if (a.Name.Length == b.Name.Length) return 0;
+            return 2;
+        }
+
+
+        public void ResultComparator(BasketballPlayer a, Sportsman b)
+        {
+            int i = Comparator(a, b);
+            switch (i)
+            {
+                case 1: Console.WriteLine($"Name {a.Name} is longer than {b.Name}"); break;
+                case -1: Console.WriteLine($"Name {b.Name} is longer than {a.Name}"); break;
+                case 0: Console.WriteLine($" {a.Name} is equal to {b.Name} length"); break;
+                default: Console.WriteLine("I guess there was a mistake"); break;
+            }
         }
 
 

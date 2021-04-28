@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConsoleApp6
+﻿namespace ConsoleApp6
 {
     public interface INutrition<U>
     {

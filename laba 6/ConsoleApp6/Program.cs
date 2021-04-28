@@ -254,22 +254,13 @@ namespace ConsoleApp6
 
                         break;
                     case "4":
-                        Footballer f1 = new Footballer (10,140,50){ Name = "Billi"};
-                        Footballer f2 = new Footballer (20,156,67){ Name = "Tom"};
-                        Footballer f3 = new Footballer (23,165,78){ Name = "Mark"};
+                        BasketballPlayer b1 = new BasketballPlayer(20, 156, 67) { Name = "Tomasi" };
+                        Sportsman s2 = new BasketballPlayer(10, 140, 50) { Name = "Billi" };
+                        
+                        b1.GetInfo();
+                        s2.GetInfo();
 
-                        f1.GetInfo();
-                        f2.GetInfo();
-                        f3.GetInfo();
-
-
-                        Footballer[] footballers = new Footballer[] { f1, f2, f3 };
-                        Array.Sort(footballers, new FootballerComparer());
-
-                        foreach (Footballer p in footballers)
-                        {
-                            Console.WriteLine($"{p.Name}");
-                        }
+                        b1.ResultComparator(b1, s2);
 
 
                         Console.ReadKey();
