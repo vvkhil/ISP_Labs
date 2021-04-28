@@ -2,7 +2,7 @@
 
 namespace ConsoleApp6
 {
-    class Human<T> 
+    abstract class Human<T> 
     {
         public string Name { get; set; }
         public T Age { get; set; }
