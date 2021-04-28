@@ -254,13 +254,14 @@ namespace ConsoleApp6
 
                         break;
                     case "4":
-                        BasketballPlayer b1 = new BasketballPlayer(20, 156, 67) { Name = "Tomasi" };
-                        Sportsman s2 = new BasketballPlayer(10, 140, 50) { Name = "Billi" };
+                        BasketballPlayer Tomasi = new BasketballPlayer(20, 156, 67) { Name = "Tomasi" };
+                        Sportsman Billi = new BasketballPlayer(10, 140, 50) { Name = "Billi" };
                         
-                        b1.GetInfo();
-                        s2.GetInfo();
-
-                        b1.ResultComparator(b1, s2);
+                        Tomasi.GetInfo();
+                        Billi.GetInfo();
+                        
+                        
+                        Tomasi.ResultComparator(Tomasi, Billi);
 
 
                         Console.ReadKey();

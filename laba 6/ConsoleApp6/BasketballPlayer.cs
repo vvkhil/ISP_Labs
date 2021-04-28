@@ -15,7 +15,7 @@ namespace ConsoleApp6
         }
 
 
-        public int Comparator(BasketballPlayer a, Sportsman b)
+        int IComp<BasketballPlayer, Sportsman>.Comparator(BasketballPlayer a, Sportsman b)
         {
             if (a.Name.Length > b.Name.Length) return 1;
             if (a.Name.Length < b.Name.Length) return -1;
@@ -26,7 +26,7 @@ namespace ConsoleApp6
 
         public void ResultComparator(BasketballPlayer a, Sportsman b)
         {
-            int i = Comparator(a, b);
+            int i=((IComp<BasketballPlayer,Sportsman>)a).Comparator(a,b);
             switch (i)
             {
                 case 1: Console.WriteLine($"Name {a.Name} is longer than {b.Name}"); break;
