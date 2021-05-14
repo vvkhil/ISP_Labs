@@ -7,7 +7,7 @@ namespace ConsoleApp7
         static void Main(string[] args)
         {
             Rational first = new Rational(-3, 2);
-            Rational second = new Rational(2, 20);
+            Rational second = new Rational(3, 8);
 
             bool isCorrect = false;
 
@@ -113,21 +113,21 @@ namespace ConsoleApp7
                         break;
                     case "6":
                         {
-                            Console.WriteLine(Rational.Parse("11/6"));
-                            Console.WriteLine(Rational.Parse("4/-7"));
-                            Console.WriteLine(Rational.Parse("-2"));
-                            Console.WriteLine(Rational.Parse("-0.75"));
-                            Console.WriteLine(Rational.Parse("-0,89"));
-                            Console.WriteLine(Rational.Parse("1,1"));
-                            Console.WriteLine(Rational.Parse("-1/3"));
+                            Console.WriteLine(Rational.Parse("17/4"));
+                            Console.WriteLine(Rational.Parse("2/-11"));
+                            Console.WriteLine(Rational.Parse("-9"));
+                            Console.WriteLine(Rational.Parse("-0.6"));
+                            Console.WriteLine(Rational.Parse("-0,893"));
+                            Console.WriteLine(Rational.Parse("14,13"));
+                            Console.WriteLine(Rational.Parse("-1/9"));
 
                             Console.WriteLine();
 
                             Rational test;
 
-                            Console.WriteLine(Rational.TryParse("Some text", out test));
-                            Console.WriteLine(Rational.TryParse("2/5", out test));
-                            Console.WriteLine(Rational.TryParse("()v/4)", out test));
+                            Console.WriteLine(Rational.TryParse("asdfdf", out test));
+                            Console.WriteLine(Rational.TryParse("7/5", out test));
+                            Console.WriteLine(Rational.TryParse("(/3f))", out test));
                         }
                         break;
                     case "7":
