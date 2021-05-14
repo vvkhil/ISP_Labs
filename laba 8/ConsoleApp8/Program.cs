@@ -94,7 +94,7 @@ namespace ConsoleApp8
 
                         static void ColorMessageTom(string message)
                         {
-                            // Устанавливаем синий цвет символов
+                            // Устанавливаем жёлтый цвет символов
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine(message);
                             // Сбрасываем настройки цвета
@@ -116,7 +116,7 @@ namespace ConsoleApp8
                         static void ColorMessageOleg(string message)
                         {
                             // Устанавливаем синий цвет символов
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine(message);
                             // Сбрасываем настройки цвета
                             Console.ResetColor();
@@ -263,7 +263,7 @@ namespace ConsoleApp8
                         };
                         Tomasi.FirstNotify += delegate (string mes)
                         {
-                            // Устанавливаем красный цвет символов
+                            // Устанавливаем голубой цвет символов
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine(mes);
                             // Сбрасываем настройки цвета
